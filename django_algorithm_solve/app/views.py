@@ -85,7 +85,8 @@ class CodeRunnerView(View):
 
         run_code_cmd = ['./{}'.format(exe_file)]
         output_bstr = Popen(run_code_cmd, stdout=PIPE).communicate()[0]
-        output = str(output_bstr).split('\n')
+        output_str = output_bstr.decode('utf-8')
+        output = output_str.split('\n')
 
         return output
 
