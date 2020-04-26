@@ -100,7 +100,7 @@ class CodeRunnerView(View):
             try:
                 lang = form.cleaned_data['lang']
                 code = form.cleaned_data['code']
-                ouput_result = self._gcc_run(lang, code)
+                output_result = self._gcc_run(lang, code)
 
             except ValueError:
                 output_result = ['뭔가 이상한데요..?'] + [x for x in form.cleaned_data.items()]
