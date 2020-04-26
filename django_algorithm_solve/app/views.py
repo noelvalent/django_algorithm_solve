@@ -62,7 +62,9 @@ class CodeRunnerView(View):
 
 
     def _gcc_run(self, lang, code):
+        import os
         from subprocess import Popen, PIPE
+
         is_c = False
         if lang == 'c':
             compiler = 'gcc'
@@ -87,6 +89,9 @@ class CodeRunnerView(View):
         output_bstr = Popen(run_code_cmd, stdout=PIPE).communicate()[0]
         output_str = output_bstr.decode('utf-8')
         output = output_str.split('\n')
+
+        if os.path.exists(exe_file):
+            os.remove(exe_file)
 
         return output
 
