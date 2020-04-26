@@ -111,6 +111,10 @@ class CodeRunnerView(View):
             except ValueError:
                 output_result = ['뭔가 이상한데요..?'] + [x for x in form.cleaned_data.items()]
 
+            except FileNotFoundError:
+                self._context_updater(form, 'Error')
+                return render(request, self.template_name, self.context)
+
             self._context_updater(form, 'Success', output_result)
             return render(request, self.template_name, self.context)
         
