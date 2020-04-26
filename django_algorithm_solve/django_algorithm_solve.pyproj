@@ -58,6 +58,7 @@
     <Folder Include="django_algorithm_solve\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\templates\app\coderunner.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

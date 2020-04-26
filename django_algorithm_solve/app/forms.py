@@ -16,3 +16,12 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
+
+class CodeRunnerForm(forms.Form):
+    _lang_choice = (
+        ('c', 'c'),
+        ('cpp', 'c++'),
+    )
+
+    lang = forms.ChoiceField(choices=_lang_choice)
+    code = forms.CharField(widget=forms.Textarea)

@@ -1,0 +1,26 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<p>이곳에 코드를 입력해주세요.</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" />
+</form>
+
+{% if output %}
+<div>
+    <h2>실행 결과</h2>
+    <table>
+        {% for line in output %}
+            <tr>{{ line }}</tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}
