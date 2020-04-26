@@ -80,7 +80,8 @@ class CodeRunnerView(View):
                 src.write(line)
 
         compile_cmd = [compiler, src_file, '-o', exe_file]
-        Popen(compile_cmd)
+        compile_proc = Popen(compile_cmd)
+        compile_proc.wait()
 
         run_code_cmd = ['./{}'.format(exe_file)]
         output_bstr = Popen(run_code_cmd, stdout=PIPE).communicate()[0]
