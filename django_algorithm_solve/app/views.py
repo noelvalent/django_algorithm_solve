@@ -97,7 +97,9 @@ class CodeRunnerView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             try:
-                ouput_result = self._gcc_run(**form.cleaned_data)
+                lang = form.cleaned_data['lang']
+                code = form.cleaned_data['code']
+                ouput_result = self._gcc_run(lang, code)
 
             except ValueError:
                 output_result = ['뭔가 이상한데요..?'] + [x for x in form.cleaned_data.items()]
