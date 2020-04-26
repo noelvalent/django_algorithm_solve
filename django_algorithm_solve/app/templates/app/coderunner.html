@@ -15,11 +15,11 @@
 {% if output %}
 <div>
     <h2>실행 결과</h2>
-    <table>
+    <ol>
         {% for line in output %}
-            <tr>{{ line }}</tr>
+            <li>{{ line }}</li>
         {% endfor %}
-    </table>
+    </ol>
 </div>
 {% endif %}
 
