@@ -61,7 +61,7 @@ class CodeRunnerView(View):
             self.context['message'] = msg
 
 
-    def _gcc_run(lang, code):
+    def _gcc_run(self, lang, code):
         from subprocess import Popen, PIPE
         is_c = False
         if lang == 'c':
